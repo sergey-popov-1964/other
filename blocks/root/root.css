@@ -3,7 +3,8 @@
    margin: auto;
    min-height: 100vh;
    background-color: #1f1f1f;
-   display: grid;
-   grid-template-columns: auto 750px auto;
-   grid-template-rows: 50px minmax(auto, 400px) 50px;
+   /* display: grid; */
+   /* grid-template-columns: auto 750px auto;
+   grid-template-rows: 50px 1fr 50px;
+   min-height: 400px; */
 }

@@ -1,0 +1,17 @@
+.slider__btn_prev {
+  left: 0;
+  top: 0;
+}
+
+.slider__btn_prev::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 5px;
+  border-top: 2px solid rgba(0, 0, 0, .5);
+  border-left: 2px solid rgba(0, 0, 0, .5);
+  transform: rotate(-45deg) translateX(50%);
+}
+

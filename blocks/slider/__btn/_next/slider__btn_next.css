@@ -1,0 +1,18 @@
+.slider__btn_next {
+    right: 0;
+    top: 0;
+ }
+ 
+ .slider__btn_next::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    right: 30px;
+    border-top: 2px solid rgba(0, 0, 0, .5);
+    border-left: 2px solid rgba(0, 0, 0, .5);
+    transform: rotate(135deg) translateX(-50%);
+ }
+ 
+ 

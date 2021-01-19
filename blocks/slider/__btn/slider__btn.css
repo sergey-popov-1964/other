@@ -1,0 +1,14 @@
+.slider__btn {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   border: none;
+   border-top: 3px solid rgba(0, 0, 0, .6);
+   border-left: 3px solid rgba(0, 0, 0, .6);
+   top: 50%;
+   right: 20px;
+   transform:  translateY(-50%) rotate(135deg);
+   background-color: rgba(255, 255, 255, .0);
+   outline: none;
+   cursor: pointer;
+}

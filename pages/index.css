@@ -1,0 +1,7 @@
+@import url('../vendor/normalize.css');
+
+@import url('../blocks/root/root.css');
+@import url('../blocks/slider/slider.css');
+@import url('../blocks/slider/__image/slider__image.css');
+@import url('../blocks/slider/__text/slider__text.css');
+@import url('../blocks/slider/__btn/slider__btn.css');

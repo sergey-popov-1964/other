@@ -1,3 +1,4 @@
+
 @import url('../vendor/normalize.css');
 
 @import url('../blocks/root/root.css');
@@ -8,3 +9,5 @@
 @import url('../blocks/slider/__btn/_next/slider__btn_next.css');
 @import url('../blocks/slider/__btn/_prev/slider__btn_prev.css');
 @import url('../blocks/slider/__image/_active/slider__image_active.css');
+
+@import url('../blocks/fade/fade.css');

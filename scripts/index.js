@@ -12,7 +12,10 @@ let numberImage = 0;
 let numberDot = 0;
 
 function clearAllStyle() {
-   backgroundImageSlide.setAttribute("style", "background-image: url(../." + sliderImage[numberImage].getAttribute('src') + ")");
+   // backgroundImageSlide.setAttribute("style", "background-image: url(../." + sliderImage[numberImage].getAttribute('src') + ")");
+   backgroundImageSlide.setAttribute("style", "background-image: url(" + sliderImage[numberImage].getAttribute('src') + ")");
+
+   console.log(sliderImage[numberImage].getAttribute('src'));
    sliderImage[numberImage].classList.remove('slider__image_active');
    sliderImage[numberImage].classList.remove('slider_move_left');
    sliderImage[numberImage].classList.remove('slider_move_right');

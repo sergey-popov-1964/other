@@ -3,11 +3,14 @@
 
 @import url('../blocks/root/root.css');
 @import url('../blocks/slider/slider.css');
+@import url('../blocks/slider/_move/slider_move_left.css');
+@import url('../blocks/slider/_move/slider_move_right.css');
 @import url('../blocks/slider/__image/slider__image.css');
-@import url('../blocks/slider/__text/slider__text.css');
 @import url('../blocks/slider/__btn/slider__btn.css');
 @import url('../blocks/slider/__btn/_next/slider__btn_next.css');
 @import url('../blocks/slider/__btn/_prev/slider__btn_prev.css');
 @import url('../blocks/slider/__image/_active/slider__image_active.css');
 
-@import url('../blocks/fade/fade.css');
+@import url('../blocks/dots/dots.css');
+@import url('../blocks/dots/__item/dots__item.css');
+@import url('../blocks/dots/__item/_active/dots__item_active.css');

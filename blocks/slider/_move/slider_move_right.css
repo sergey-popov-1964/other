@@ -1,0 +1,14 @@
+  @keyframes move_right {
+     0% {
+        transform: translateX(-100%);
+     }
+
+     100% {
+        transform: translateX(0%);
+     }
+  }
+
+  .slider_move_right {
+     display: flex;
+     animation: move_right .5s linear;
+  }

@@ -53,7 +53,6 @@ function showPrevImage() {
    moveSliderRight();
 }
 
-
 buttonNext.addEventListener('click', showNextImage);
 buttonPrev.addEventListener('click', showPrevImage);
 

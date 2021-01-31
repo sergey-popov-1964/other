@@ -1,4 +1,4 @@
-.dots {
+.slider__dots {
   display: flex;
   flex-direction: row;
   position: absolute;

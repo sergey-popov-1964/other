@@ -1,9 +1,9 @@
 .slider__dots-item {
   width: 15px;
-  height: 10px;
+  height: 15px;
   outline: none;
-  border: 2px solid #000000;
-  border-radius: 30%;
+  border: 1px solid #000000;
+  border-radius: 100%;
   background-color: #ffffff;
   margin-left: 15px;
   cursor: pointer;

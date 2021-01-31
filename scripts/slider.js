@@ -7,9 +7,9 @@ const backgroundImageSlide = document.querySelector('.slider__wrapper');
 
 const sliderDots = document.querySelectorAll('.slider__dots-item');
 
-
 let numberImage = 0;
 let numberDot = 0;
+let currentImage = 0;
 
 function clearAllStyle() {
    backgroundImageSlide.setAttribute("style", "background-image: url(" + sliderImage[numberImage].getAttribute('src') + ")");
@@ -22,7 +22,7 @@ function clearAllStyle() {
 function moveSliderLeft() {
    sliderImage[numberImage].classList.add('slider__image_active');
    sliderImage[numberImage].classList.add('slider_move_left');
-   sliderDots[numberDot].classList.add('slider__dots-item_active'); 
+   sliderDots[numberDot].classList.add('slider__dots-item_active');
 }
 
 function moveSliderRight() {
@@ -37,8 +37,9 @@ function showNextImage() {
       numberImage = -1;
    }
    numberImage++;
-   numberDot = numberImage
-   moveSliderLeft()
+   numberDot = numberImage;
+   currentImage = numberImage;
+   moveSliderLeft();
 }
 
 function showPrevImage() {
@@ -47,8 +48,9 @@ function showPrevImage() {
       numberImage = sliderImage.length;
    }
    numberImage--;
-   numberDot = numberImage
-   moveSliderRight()
+   numberDot = numberImage;
+   currentImage = numberImage;
+   moveSliderRight();
 }
 
 
@@ -56,10 +58,24 @@ buttonNext.addEventListener('click', showNextImage);
 buttonPrev.addEventListener('click', showPrevImage);
 
 sliderDots.forEach((item, indexDot) => {
-	item.addEventListener('click', () => {
+   item.addEventListener('click', () => {
       clearAllStyle();
       numberDot = indexDot;
-      numberImage = numberDot
-      moveSliderLeft()
-	})
+      numberImage = numberDot;
+      if (numberDot < currentImage) {
+         if (numberImage == 0) {
+            currentImage = numberDot+1;
+         } else {
+            currentImage = numberDot;
+         }
+         moveSliderRight();
+      } else {
+         if (currentImage == numberDot) {
+            currentImage = numberDot;
+         } else {
+            currentImage = numberDot;
+         }
+         moveSliderLeft();
+      }
+   })
 });

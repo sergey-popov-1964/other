@@ -1,0 +1,17 @@
+.multislider {
+  margin: 0;
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  /* gap: 16px; */
+}
+
+.img {
+  display: none;
+  width: 100%;
+  object-fit: cover;
+}
+
+.img-active {
+  display: block;
+}
+

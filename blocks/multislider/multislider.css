@@ -42,9 +42,24 @@
   }
 }
 
+@keyframes move_right1 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .multislider_move_left {
   display: flex;
   animation: move_left1 .5s linear;
+}
+
+.multislider_move_right {
+  display: flex;
+  animation: move_right1 .5s linear;
 }
 
 .multislider__img-wrapper {

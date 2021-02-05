@@ -1,5 +1,9 @@
 const multisliderButtonNext = document.querySelector('.multislider__btn_next');
 const multisliderButtonPrev = document.querySelector('.multislider__btn_prev');
+const multisliderButtonStart = document.querySelector('.multislider__btn_start');
+const multisliderButtonEnd = document.querySelector('.multislider__btn_end');
+
+
 const multisliderImageWrapper = document.querySelectorAll('.multislider__img-wrapper');
 const multisliderImage = document.querySelectorAll('.multislider__img');
 
@@ -9,13 +13,23 @@ let currentMultisliderImage = 0; // номер картинки которая �
 // для изменения количества картинок в слайдере изменяем количество столбцов
 // в Grid в классе .multislider__wrapper и количество установленных классов
 // multislider__img_active по умолчанию у тега img
-let multiSliderStep = 2
+let multiSliderStep = 2;
 
-let nextImageWrapper
+let nextImageWrapper;
 
-// Установка кнопки Prev в неактивное состояние при начальной загрузке
-multisliderButtonPrev.setAttribute("disabled", "disabled");
-multisliderButtonPrev.classList.add('multislider__btn_inactive');
+
+function disableButton(nameButton) {
+  nameButton.setAttribute("disabled", "disabled");
+  nameButton.classList.add('multislider__btn_inactive');
+}
+
+function enableButton(nameButton) {
+  nameButton.removeAttribute("disabled");
+  nameButton.classList.remove('multislider__btn_inactive');
+}
+
+disableButton(multisliderButtonPrev);
+disableButton(multisliderButtonStart);
 
 function clearButtonNext() {
   for (i = currentMultisliderImage; i <= currentMultisliderImage + multiSliderStep; i++) {
@@ -56,12 +70,14 @@ function showNextMultisliderImage() {
   setTimeout(clearButtonNext, 500);
 
   if ((currentMultisliderImage + multiSliderStep + 1) === multisliderImageWrapper.length) { // если не конец массива изображений продолжаем листать
-    multisliderButtonNext.setAttribute("disabled", "disabled")
-    multisliderButtonNext.classList.add('multislider__btn_inactive');
+    disableButton(multisliderButtonNext);
+    disableButton(multisliderButtonEnd);
+
   }
 
-  multisliderButtonPrev.removeAttribute("disabled");
-  multisliderButtonPrev.classList.remove('multislider__btn_inactive');
+  enableButton(multisliderButtonPrev);
+  enableButton(multisliderButtonStart);
+
 }
 
 function showPrevImageMultislider() {
@@ -82,13 +98,61 @@ function showPrevImageMultislider() {
   setTimeout(clearButtonPrev, 500);
 
   if (currentMultisliderImage === 0) { // если не начало массива изображений продолжаем листать
-    multisliderButtonPrev.setAttribute("disabled", "disabled");
-    multisliderButtonPrev.classList.add('multislider__btn_inactive');
+    disableButton(multisliderButtonPrev);
+    disableButton(multisliderButtonStart);
+
   }
 
-  multisliderButtonNext.removeAttribute("disabled");
-  multisliderButtonNext.classList.remove('multislider__btn_inactive');
+  enableButton(multisliderButtonNext);
+  enableButton(multisliderButtonEnd);
+
 }
+
+function showStartImageMultislider() {
+  multisliderImage.forEach(item => {
+    item.classList.remove('multislider_move_right');
+  })
+
+  multisliderImageWrapper.forEach(item => {
+    item.classList.remove('multislider__img_active');
+  })
+
+  for (let i = 0; i <= multiSliderStep; i++) {
+    multisliderImageWrapper[i].classList.add('multislider__img_active');
+  }
+
+  currentMultisliderImage = 0
+  disableButton(multisliderButtonPrev);
+  disableButton(multisliderButtonStart);
+  enableButton(multisliderButtonNext);
+  enableButton(multisliderButtonEnd);
+}
+
+function showEndImageMultislider() {
+  multisliderImage.forEach(item => {
+    item.classList.remove('multislider_move_right');
+  })
+
+  multisliderImageWrapper.forEach(item => {
+    item.classList.remove('multislider__img_active');
+  })
+
+  for (let i = (multisliderImageWrapper.length - multiSliderStep - 1); i <= (multisliderImageWrapper.length - 1); i++) {
+    
+    console.log(i)
+    multisliderImageWrapper[i].classList.add('multislider__img_active');
+  }
+  
+  currentMultisliderImage = multisliderImageWrapper.length - multiSliderStep - 1
+  disableButton(multisliderButtonNext);
+  disableButton(multisliderButtonEnd);
+  enableButton(multisliderButtonPrev);
+  enableButton(multisliderButtonStart);
+}
+
 
 multisliderButtonNext.addEventListener('click', showNextMultisliderImage);
 multisliderButtonPrev.addEventListener('click', showPrevImageMultislider);
+
+multisliderButtonStart.addEventListener('click', showStartImageMultislider);
+multisliderButtonEnd.addEventListener('click', showEndImageMultislider);

@@ -1,3 +1,9 @@
+.multislider {
+  padding: 0 40px;
+
+}
+
+
 .multislider__wrapper {
   margin: 0;
   display: grid;
@@ -23,12 +29,14 @@
 }
 
 .multislider__btn {
-  width: 50px;
+  box-sizing: border-box;
+  width: 30px;
   height: 30px;
-  background-color: rgb(255, 255, 255, .2);
+   background-color: rgba(0, 0, 0, 0);
   border: none;
   outline: none;
   cursor: pointer;
+  /* opacity: 0; */
 }
 
 
@@ -72,5 +80,35 @@
 }
 
 .multislider__btn_inactive {
-  background-color: brown;
+   filter:opacity(.1)
 }
+
+.multislider__btn_prev {
+  background-image: url('/images/arrow-circle.svg');
+  background-position: center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+}
+
+.multislider__btn_next {
+  background-image: url('/images/arrow-circle.svg');
+  background-position: center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+  }
+
+  .multislider__btn_start {
+    background-image: url('/images/arrow-end-circle.svg');
+    background-position: center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+  }
+  
+  .multislider__btn_end {
+    background-image: url('/images/arrow-end-circle.svg');
+    background-position: center;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    }
